@@ -16,9 +16,8 @@ import {
 } from "lucide-react";
 import "./App.css";
 
-const API_URL = "http://localhost:5000/api/url";
-const NETWORK_API_URL = "http://localhost:5000/api/network-activity";
-
+const API_URL = "https://url-shield-backend.onrender.com/api/url";
+const NETWORK_API_URL = "https://url-shield-backend.onrender.com/api/network-activity";
 function App() {
   const [url, setUrl] = useState("");
   const [result, setResult] = useState(null);
