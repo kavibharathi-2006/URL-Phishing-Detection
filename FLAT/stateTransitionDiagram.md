@@ -1,6 +1,7 @@
 
 
-mermaid
+
+```mermaid
 flowchart TD
     A((Start)) --> q0[q0]
 
@@ -23,4 +24,4 @@ flowchart TD
     q11 -->|Any non-whitespace character| q11
 
     q11 --> F((Accepted))
-
+```
