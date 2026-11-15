@@ -1,7 +1,6 @@
 
-# DFA State Transition Diagram – URL Validation
 
-```mermaid
+mermaid
 flowchart TD
     A((Start)) --> q0[q0]
 
@@ -14,13 +13,14 @@ flowchart TD
     q4 -->|s| q6[q6]
 
     q5 -->|/| q7[q7]
+    q7 -->|/| q10[q10]
+
     q6 -->|:| q8[q8]
-
     q8 -->|/| q9[q9]
-    q7 -->|/| q9
+    q9 -->|/| q10
 
-    q9 -->|Any non-whitespace character| q10((q10))
-    q10 -->|Any non-whitespace character| q10
+    q10 -->|First character except slash| q11((q11))
+    q11 -->|Any non-whitespace character| q11
 
-    q10 --> F((Accepted))
-```
+    q11 --> F((Accepted))
+
