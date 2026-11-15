@@ -10,10 +10,25 @@ function checkDFA(url) {
 }
 
 function validateURL(inputURL) {
+    if (typeof inputURL !== "string" || !inputURL.trim()) {
+        return {
+            status: "Invalid",
+            reasons: ["Please enter a URL."],
+            details: null
+        };
+    }
+
     const url = inputURL.trim();
 
-    let status = "Valid";
-    const reasons = [];
+    if (!/^https?:\/\//i.test(url)) {
+        return {
+            status: "Invalid",
+            reasons: [
+                "URL does not follow the HTTP or HTTPS protocol structure"
+            ],
+            details: null
+        };
+    }
 
     if (!checkDFA(url)) {
         return {
@@ -45,11 +60,22 @@ function validateURL(inputURL) {
         };
     }
 
+    if (!parsedURL.hostname || url.includes("\\")) {
+        return {
+            status: "Invalid",
+            reasons: ["Invalid URL structure"],
+            details: null
+        };
+    }
+
     const hostname = parsedURL.hostname.toLowerCase();
     const cleanHostname = hostname.replace(/^\[|\]$/g, "");
 
     const domainRegex =
         /^(?=.{1,253}$)(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[A-Za-z]{2,}$/;
+
+    let status = "Valid";
+    const reasons = [];
 
     if (isIP(cleanHostname)) {
         status = "Suspicious";
