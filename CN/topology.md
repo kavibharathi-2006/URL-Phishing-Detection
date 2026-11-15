@@ -15,7 +15,7 @@ flowchart TD
     D[Render Cloud Server - Node.js and Express]
     E[MongoDB Atlas - Database]
 
-    A --> B
+    A -->|HTTPS| B
     B --> C
     C -->|HTTPS API Request| D
     D -->|MongoDB Connection| E
@@ -27,18 +27,23 @@ flowchart TD
 ## 3. Components Used
 
 ### Client
+
 The client is the user's web browser. The user enters a URL into the URL Shield application.
 
 ### Frontend
+
 The React frontend is hosted on GitHub Pages. It accepts user input and displays URL analysis results.
 
 ### Internet Network
+
 The Internet connects the client browser, frontend hosting service and backend server. Routers and gateways forward network traffic between networks.
 
 ### Backend Server
+
 The Node.js and Express backend is hosted on Render. It validates URLs, performs DNS lookup and communicates with MongoDB Atlas.
 
 ### Database Server
+
 MongoDB Atlas stores URL analysis history, detection reasons, URL details and DNS lookup information.
 
 ## 4. Communication Between Components
