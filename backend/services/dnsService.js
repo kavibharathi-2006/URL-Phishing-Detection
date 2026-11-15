@@ -1,3 +1,4 @@
+
 const dns = require("dns").promises;
 
 async function lookupDomain(domain) {
@@ -6,13 +7,22 @@ async function lookupDomain(domain) {
             all: true
         });
 
+        const uniqueAddresses = [
+            ...new Map(
+                addresses.map(item => [
+                    `${item.address}|${item.family}`,
+                    {
+                        address: item.address,
+                        family: item.family
+                    }
+                ])
+            ).values()
+        ];
+
         return {
             status: "Success",
             domain,
-            ipAddresses: addresses.map(item => ({
-                address: item.address,
-                family: item.family
-            }))
+            ipAddresses: uniqueAddresses
         };
     } catch (error) {
         return {
