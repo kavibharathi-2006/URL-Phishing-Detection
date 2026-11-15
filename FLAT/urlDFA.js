@@ -9,14 +9,15 @@ const transitions = {
         s: "q6"
     },
     q5: { "/": "q7" },
+    q7: { "/": "q10" },
     q6: { ":": "q8" },
     q8: { "/": "q9" },
-    q7: { "/": "q9" },
-    q9: { "*": "q10" },
-    q10: { "*": "q10" }
+    q9: { "/": "q10" },
+    q10: { "*": "q11" },
+    q11: { "*": "q11" }
 };
 
-const acceptingStates = ["q10"];
+const acceptingStates = ["q11"];
 
 function isValidURLStructure(url) {
     let state = "q0";
