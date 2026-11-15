@@ -7,15 +7,14 @@ IP addressing is used to identify devices and servers in a network. URL Shield u
 
 ## 2. IP Address Details
 
-| Component | IP Address | Description |
+| Component | Domain / IP Address | Description |
 |---|---|---|
-| Client | 171.79.57.92 | Public IP assigned to the client network by the Internet Service Provider |
-|Backend Server | 216.24.57.16, 216.24.57.18 | IPv4 addresses returned by DNS lookup for the Render backend domain |
+| Client | Public IP assigned by ISP | Identifies the client network on the Internet |
+| Frontend | kavibharathi-2006.github.io | React frontend hosted on GitHub Pages |
+| Backend Server | url-shield-backend.onrender.com | Node.js and Express backend hosted on Render |
+| Backend IPv4 | 216.24.57.16, 216.24.57.18 | Example IPv4 addresses previously observed during DNS lookup |
 
-| Frontend | url-shield-frontend-axe0.onrender.com | GitHub Pages website domain |
-| Backend Domain | url-shield-backend.onrender.com | Render backend domain |
-
-Note: Public IP addresses of cloud services may change. The IP addresses above should be treated as the values observed during testing.
+Note: Cloud service IP addresses may change. The listed backend IP addresses are previously observed DNS results and may not represent the current addresses.
 
 ## 3. Client and Server Communication
 
@@ -24,7 +23,7 @@ Note: Public IP addresses of cloud services may change. The IP addresses above s
 3. DNS resolution identifies the IP address associated with the backend domain.
 4. The client network sends the request through the Internet to the backend server.
 5. The backend processes the request and performs URL validation.
-6. The backend sends the response back to the client through the established network connection.
+6. The backend sends the response back to the frontend through the established network connection.
 
 ## 4. Role of DNS
 
@@ -32,17 +31,18 @@ DNS stands for Domain Name System. It translates a domain name into an IP addres
 
 Example:
 
-Backend domain:
-https://url-shield-backend.onrender.com
+Backend domain: https://url-shield-backend.onrender.com
 
-DNS resolves the domain to an IP address so that the client can communicate with the backend server.
+DNS resolves the domain name into an IP address so that the client can communicate with the backend server.
 
 ## 5. IP Address Types
 
 ### IPv4
+
 IPv4 uses a 32-bit address. Example format: 192.168.1.10.
 
 ### IPv6
+
 IPv6 uses a 128-bit address. It provides a much larger address space than IPv4.
 
 ## 6. Conclusion
