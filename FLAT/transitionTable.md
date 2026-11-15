@@ -1,5 +1,5 @@
 
-# DFA Transition Table – URL Validation
+# DFA Transition Table
 
 | Current State | Input Symbol | Next State |
 |---|---|---|
@@ -10,17 +10,25 @@
 | q4 | : | q5 |
 | q4 | s | q6 |
 | q5 | / | q7 |
+| q7 | / | q10 |
 | q6 | : | q8 |
-| q7 | / | q9 |
 | q8 | / | q9 |
-| q9 | Any non-whitespace character | q10 |
-| q10 | Any non-whitespace character | q10 |
+| q9 | / | q10 |
+| q10 | First character except slash | q11 |
+| q11 | Any non-whitespace character | q11 |
 
 ## Initial State
+
 q0
 
 ## Final State
-q10
+
+q11
 
 ## Rejected Input
-Any input containing whitespace or an unsupported transition is rejected.
+
+- Any input containing whitespace is rejected.
+- Any unsupported transition is rejected.
+- A third slash immediately after the protocol separator is rejected.
+- An empty host after the protocol separator is rejected.
+- Inputs not following HTTP or HTTPS protocol structure are rejected.
