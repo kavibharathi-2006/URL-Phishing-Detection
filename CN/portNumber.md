@@ -12,7 +12,7 @@ A port number identifies a specific service or application running on a device. 
 | 443 | HTTPS | Secure communication between browser and cloud-hosted services |
 | 5173 | React Vite | Frontend development server during local testing |
 | 5000 | Node.js and Express | Backend development server during local testing |
-| 10000 | Render Backend | Internal port used by the deployed backend service |
+| 10000 | Render Backend | Internal port used by the deployed backend service in this deployment |
 | 27017 | MongoDB | Default port for MongoDB database connections |
 
 ## 3. Explanation
@@ -35,7 +35,7 @@ The deployed backend runs using the internal port configured by Render. In this 
 
 ### Port 27017 – MongoDB
 
-Port 27017 is the default MongoDB service port. The backend connects to MongoDB Atlas using its database connection configuration.
+Port 27017 is the default MongoDB service port. The backend connects to MongoDB Atlas using its database connection configuration. The actual connection port depends on the Atlas connection setup.
 
 ## 4. Conclusion
 
